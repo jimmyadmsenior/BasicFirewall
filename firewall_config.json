@@ -1,0 +1,47 @@
+{
+    "rules": [
+        {
+            "name": "Block Telnet",
+            "action": "block",
+            "dst_port": 23,
+            "protocol": "tcp",
+            "priority": 10
+        },
+        {
+            "name": "Block FTP",
+            "action": "block",
+            "dst_port": "20-21",
+            "protocol": "tcp",
+            "priority": 20
+        },
+        {
+            "name": "Allow HTTP/HTTPS",
+            "action": "allow",
+            "dst_port": [80, 443],
+            "protocol": "tcp",
+            "priority": 30
+        },
+        {
+            "name": "Allow DNS",
+            "action": "allow",
+            "dst_port": 53,
+            "priority": 40
+        },
+        {
+            "name": "Allow ICMP (ping)",
+            "action": "allow",
+            "protocol": "icmp",
+            "priority": 50
+        },
+        {
+            "name": "Default Rule",
+            "action": "block",
+            "priority": 999
+        }
+    ],
+    "settings": {
+        "default_action": "block",
+        "log_level": "info",
+        "enable_notifications": true
+    }
+}
